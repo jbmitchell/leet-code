@@ -32,5 +32,37 @@ namespace LeetCodeLibrary.Easy.Tests
             lib.Merge(nums1, m, nums2, n);
             CollectionAssert.AreEqual(new int[] { 1, 2, 2, 3, 5, 6 }, nums1);
         }
+
+        [TestMethod()]
+        public void MergeTest3()
+        {
+            int[] nums1 = { 1 };
+            int[] nums2 = { };
+            int m = 1, n = 0;
+            var lib = new MergeSortedArray();
+            lib.Merge(nums1, m, nums2, n);
+            CollectionAssert.AreEqual(new int[] { 1 }, nums1);
+        }
+
+        [TestMethod()]
+        public void MergeTest4()
+        {
+            int[] nums1 = { 0 };
+            int[] nums2 = { 1 };
+            int m = 0, n = 1;
+            var lib = new MergeSortedArray();
+            lib.Merge(nums1, m, nums2, n);
+            CollectionAssert.AreEqual(new int[] { 1 }, nums1);
+        }
+        [TestMethod()]
+        public void MergeTest5()
+        {
+            int[] nums1 = { 1, 0 };
+            int[] nums2 = { 2 };
+            int m = 1, n = 1;
+            var lib = new MergeSortedArray();
+            lib.Merge(nums1, m, nums2, n);
+            CollectionAssert.AreEqual(new int[] { 1, 2 }, nums1);
+        }
     }
 }
