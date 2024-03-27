@@ -1,4 +1,6 @@
-﻿namespace LeetCodeLibrary.Easy
+﻿using Microsoft.VisualBasic;
+
+namespace LeetCodeLibrary.Easy
 {
     /*
     You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
@@ -46,9 +48,9 @@
         public void Merge(int[] nums1, int m, int[] nums2, int n)
         {
             int i = 0, j = 0;
-            for (; i < m + n && j < n;)
+            for (; i < nums1.Length && j < nums2.Length;)
             {
-                if (i <= m && nums1[i] <= nums2[j])
+                if (nums1[i] <= nums2[j] && i < m)
                 {
                     i += 1;
                 }
@@ -63,6 +65,7 @@
                     nums1[i] = nums2[j];
                     i += 1;
                     j += 1;
+                    m += 1;
                 }
             }
         }
