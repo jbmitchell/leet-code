@@ -64,6 +64,17 @@ Constraints:
     {
         public int RemoveElement(int[] nums, int val)
         {
+            var k = 0;
+            for (var i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == val) continue;
+                nums[k] = nums[i];
+                k += 1;
+            }
+            return k;
+        }
+        public int RemoveElementSlow(int[] nums, int val)
+        {
             var k = nums.Length;
             for (var i = 0; i < k;)
             {
