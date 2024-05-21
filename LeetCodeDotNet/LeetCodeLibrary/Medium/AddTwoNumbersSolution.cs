@@ -47,8 +47,7 @@ It is guaranteed that the list represents a number that does not have leading ze
 
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-            var output = AddTwoNumbers(l1, l2, 0)!;
-            return output;
+            return AddTwoNumbers(l1, l2, 0)!;
         }
 
         private static ListNode? AddTwoNumbers(ListNode? l1, ListNode? l2, int carry)
@@ -56,23 +55,18 @@ It is guaranteed that the list represents a number that does not have leading ze
             if (l1 == null && l2 == null && carry == 0) return null;
             var v1 = l1?.val ?? 0; 
             var v2 = l2?.val ?? 0;
-            v1 += carry;
-            var sum = v1 + v2;
-            var newCarry = 0;
-            int? digit;
+            var sum = v1 + v2 + carry;
             if (sum >= 10)
             {
-                digit = sum % 10;
-                newCarry = (sum - (sum % 10)) / 10;
+                return new ListNode(
+                    sum % 10,
+                   AddTwoNumbers(l1?.next, l2?.next, (sum - (sum % 10)) / 10));
             }
             else
             {
-                digit = sum;
-            }
+                return new ListNode(sum, AddTwoNumbers(l1?.next, l2?.next, 0));
 
-            return digit is null
-                ? null
-                : new ListNode((int)digit, AddTwoNumbers(l1?.next, l2?.next, newCarry));
+            }
         }
         public ListNode AddTwoNumbersSlow(ListNode l1, ListNode l2)
         {
