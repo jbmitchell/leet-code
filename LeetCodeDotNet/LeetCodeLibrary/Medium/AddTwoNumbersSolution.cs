@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Numerics;
 using System.Runtime.InteropServices.JavaScript;
+using System.Runtime.Intrinsics;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
 
 namespace LeetCodeLibrary.Medium
 {
@@ -44,9 +47,34 @@ It is guaranteed that the list represents a number that does not have leading ze
 
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-            throw new NotImplementedException();
+            var output = AddTwoNumbers(l1, l2, 0)!;
+            return output;
         }
-        public ListNode AddTwoNumbers_slow(ListNode l1, ListNode l2)
+
+        private static ListNode? AddTwoNumbers(ListNode? l1, ListNode? l2, int carry)
+        {
+            if (l1 == null && l2 == null && carry == 0) return null;
+            var v1 = l1?.val ?? 0; 
+            var v2 = l2?.val ?? 0;
+            v1 += carry;
+            var sum = v1 + v2;
+            var newCarry = 0;
+            int? digit;
+            if (sum >= 10)
+            {
+                digit = sum % 10;
+                newCarry = (sum - (sum % 10)) / 10;
+            }
+            else
+            {
+                digit = sum;
+            }
+
+            return digit is null
+                ? null
+                : new ListNode((int)digit, AddTwoNumbers(l1?.next, l2?.next, newCarry));
+        }
+        public ListNode AddTwoNumbersSlow(ListNode l1, ListNode l2)
         {
             var l1Sb = ConvertListNodeToStringBuilder(l1);
             var l2Sb = ConvertListNodeToStringBuilder(l2);
