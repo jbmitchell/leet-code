@@ -1,12 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LeetCodeLibrary.Medium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LeetCodeLibrary.Medium;
 
-namespace LeetCodeLibrary.Medium.Tests
+namespace LeetCodeLibraryTests.Medium
 {
     [TestClass()]
     public class AddTwoNumbersSolutionTests

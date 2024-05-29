@@ -1,12 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LeetCodeLibrary.Easy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LeetCodeLibrary.Easy;
 
-namespace LeetCodeLibrary.Easy.Tests
+namespace LeetCodeLibraryTests.Easy
 {
     [TestClass()]
     public class RemoveElementSolutionTests
