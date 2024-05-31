@@ -95,5 +95,27 @@ namespace LeetCodeLibraryTests.Medium
             //assert
             Assert.AreEqual(false, result);
         }
+        [TestMethod("Bad Sub Square 2")]
+        public void IsValidSudokuTest5()
+        {
+            var board = new[] {
+                new[]{'.','4','.','.','.','.','.','.','.'},
+                new[]{'.','.','4','.','.','.','.','.','.'},
+                new[]{'.','.','.','1','.','.','7','.','.'},
+                new[]{'.','.','.','.','.','.','.','.','.'},
+                new[]{'.','.','.','3','.','.','.','6','.'},
+                new[]{'.','.','.','.','.','6','.','9','.'},
+                new[]{'.','.','.','.','1','.','.','.','.'},
+                new[]{'.','.','.','.','.','.','2','.','.'},
+                new[]{'.','.','.','8','.','.','.','.','.'}
+            };
+            //arrange
+            var solution = new IsValidSudokuSolutions();
+            //act
+            var result = solution.IsValidSudoku(board);
+
+            //assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
